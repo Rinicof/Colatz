@@ -1,20 +1,15 @@
 def colatz(n):
 	steps = [n]
 	if n > 0 and isinstance(n, int):
-		while True:
-			if n != 1:
-				if n % 2 == 0:
-					n = int(n / 2)
-					steps.append(n)
-					continue
-				else:
-					n = int(3 * n + 1)
-					steps.append(n)
-					continue
+		while n != 1:
+			if n % 2 == 0:
+				n = int(n / 2)
+				steps.append(n)
 			else:
-				print(f"{n} => {steps}")
-				print(f"Кол-во шагов - {len(steps) - 1}")
-				break
+				n = int(3 * n + 1)
+				steps.append(n)
+		print(f"{n} => {steps}")
+		print(f"Кол-во шагов - {len(steps) - 1}")
 	else: 
 		print("Гиппотеза Колатца распростроняется только на натуральные числа!")
 
